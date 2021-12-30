@@ -15,7 +15,10 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 Metrics/BlockLength:
-  ExcludedMethods: ["describe", "context", "feature", "scenario", "let"]
+  Enable: true
+  Exclude:
+    - spec/**/*
+  # ExcludedMethods: ["describe", "context", "feature", "scenario", "let"]
 
 Metrics/MethodLength:
   Max: 1000

@@ -1,0 +1,57 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/wendellopes/projects/dipaz/app/models/company.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          15,
+          15,
+          null,
+          null,
+          1,
+          6,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          15,
+          null,
+          null,
+          1,
+          15,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/wendellopes/projects/dipaz/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1640876712
+  }
+}
