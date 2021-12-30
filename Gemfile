@@ -7,6 +7,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 
+gem 'active_model_serializers', '~> 0.10.12'
 gem 'cpf_cnpj'
 # gem 'devise_token_auth', github: 'lynndylanhurley/devise_token_auth', branch: 'master'
 # gem 'kaminari'
