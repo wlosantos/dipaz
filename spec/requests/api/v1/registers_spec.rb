@@ -130,7 +130,7 @@ RSpec.describe 'Api::V1::Registers', :focus, type: :request do
       end
 
       it 'returns status code 204' do
-        expect(response).to have_http_status :not_found
+        expect(response).to have_http_status :no_content
       end
       it 'confirmed delete register' do
         expect(Register.last).to_not eq(register)

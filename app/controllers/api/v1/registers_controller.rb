@@ -2,7 +2,7 @@ module Api
   module V1
     class RegistersController < ApplicationController
       before_action :set_company, only: %i[index create]
-      before_action :set_register, only: %i[show]
+      before_action :set_register, only: %i[show update destroy]
 
       def index
         register = @company.registers.all
@@ -23,18 +23,19 @@ module Api
       end
 
       def update
-        register = Register.find(params[:id])
-
-        if register.update(params_register)
-          render json: register, status: :ok
+        if @register.update(params_register)
+          render json: @register, status: :ok
         else
-          render json: { errors: register.errors.full_messages }, status: :unprocessable_entity
+          render json: { errors: @register.errors.full_messages }, status: :unprocessable_entity
         end
       end
 
       def destroy
-        register = Register.find(params[:id])
-        head :not_found if register.destroy
+        if @register.destroy
+          head :no_content
+        else
+          head :unprocessable_entity
+        end
       rescue StandardError
         head :unprocessable_entity
       end
