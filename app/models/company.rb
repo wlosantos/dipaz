@@ -1,5 +1,6 @@
 class Company < ApplicationRecord
   has_many :users, dependent: :destroy
+  has_many :registers, dependent: :destroy
 
   enum status: { active: 0, blocked: 1 }
 
@@ -14,8 +15,10 @@ class Company < ApplicationRecord
   private
 
   def cnpj_valid?
-    errors.add(:cnpj, 'is not valid!') unless CNPJ.valid?(cnpj)
-    CNPJ.valid?(cnpj)
+    return true if CNPJ.valid?(cnpj)
+
+    errors.add(:cnpj, 'is not valid!')
+    false
   end
 
   def cnpj_not_exists?
