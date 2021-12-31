@@ -98,9 +98,14 @@
           null,
           1,
           11,
+          11,
+          11,
           1,
           null,
           10,
+          null,
+          null,
+          null,
           null,
           null,
           null,
@@ -200,10 +205,29 @@
           null
         ]
       },
+      "/home/wendellopes/projects/dipaz/app/controllers/api/v1/base_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/home/wendellopes/projects/dipaz/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
           null
         ]
       },
@@ -219,6 +243,6 @@
         ]
       }
     },
-    "timestamp": 1640913943
+    "timestamp": 1640914751
   }
 }
