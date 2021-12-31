@@ -9,9 +9,9 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 
 gem 'active_model_serializers', '~> 0.10.12'
 gem 'cpf_cnpj'
-# gem 'devise_token_auth', github: 'lynndylanhurley/devise_token_auth', branch: 'master'
+gem 'devise_token_auth', github: 'lynndylanhurley/devise_token_auth', branch: 'master'
 # gem 'kaminari'
-# gem 'rolify'
+gem 'rolify'
 
 # gem 'rack-cors'
 
