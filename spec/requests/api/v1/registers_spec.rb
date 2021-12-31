@@ -119,4 +119,32 @@ RSpec.describe 'Api::V1::Registers', :focus, type: :request do
       end
     end
   end
+
+  describe 'DELETE /companies/:id/registers/:id' do
+    let(:register) { create(:register) }
+
+    context 'successfully' do
+      before do
+        register
+        delete "/companies/#{company.id}/registers/#{register.id}", params: {}, headers: headers
+      end
+
+      it 'returns status code 204' do
+        expect(response).to have_http_status :not_found
+      end
+      it 'confirmed delete register' do
+        expect(Register.last).to_not eq(register)
+      end
+    end
+
+    context 'failure' do
+      before do
+        register
+        delete "/companies/#{company.id}/registers/1000", params: {}, headers: headers
+      end
+      it 'returns status code 422' do
+        expect(response).to have_http_status :unprocessable_entity
+      end
+    end
+  end
 end
