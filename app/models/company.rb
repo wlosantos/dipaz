@@ -1,4 +1,6 @@
 class Company < ApplicationRecord
+  has_many :users, dependent: :destroy
+
   enum status: { active: 0, blocked: 1 }
 
   validates :name, presence: true, length: { minimum: 5 }
