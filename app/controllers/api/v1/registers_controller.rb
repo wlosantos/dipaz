@@ -22,6 +22,16 @@ module Api
         end
       end
 
+      def update
+        register = Register.find(params[:id])
+
+        if register.update(params_register)
+          render json: register, status: :ok
+        else
+          render json: { errors: register.errors.full_messages }, status: :unprocessable_entity
+        end
+      end
+
       private
 
       def set_company
