@@ -1,7 +1,7 @@
 module Api
   module V1
     class RegistersController < ApplicationController
-      before_action :set_company, only: %i[index]
+      before_action :set_company, only: %i[index create]
       before_action :set_register, only: %i[show]
 
       def index
@@ -11,6 +11,15 @@ module Api
 
       def show
         render json: @register, status: :ok
+      end
+
+      def create
+        register = @company.registers.build(params_register)
+        if register.save
+          render json: register, status: :created
+        else
+          render json: { errors: register.errors.full_messages }, status: :unprocessable_entity
+        end
       end
 
       private
@@ -25,6 +34,10 @@ module Api
         @register = Register.find(params[:id])
       rescue StandardError
         head :unprocessable_entity
+      end
+
+      def params_register
+        params.require(:register).permit(:name, :birthday, :cpf, :rg, :accession_at, :plan, :status)
       end
     end
   end

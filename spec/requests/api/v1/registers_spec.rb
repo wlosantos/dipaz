@@ -61,4 +61,32 @@ RSpec.describe 'Api::V1::Registers', :focus, type: :request do
       it { expect(response).to have_http_status :unprocessable_entity }
     end
   end
+
+  describe 'POST /companies/:id/registers' do
+    before do
+      post "/companies/#{company.id}/registers", params: params_register.to_json, headers: headers
+    end
+
+    context 'successfully - create register' do
+      let(:params_register) { attributes_for(:register) }
+
+      it 'returns status code 201' do
+        expect(response).to have_http_status :created
+      end
+      it 'return json data register created' do
+        expect(json_body[:name]).to eq(params_register[:name])
+      end
+    end
+
+    context 'failure - create register' do
+      let(:params_register) { attributes_for(:register, cpf: '') }
+
+      it 'returns status code 422' do
+        expect(response).to have_http_status :unprocessable_entity
+      end
+      it 'return message errors' do
+        expect(json_body[:errors]).to include('Cpf is not valid!')
+      end
+    end
+  end
 end
