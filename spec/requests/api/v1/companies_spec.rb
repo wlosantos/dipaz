@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Companies', :focus, type: :request do
+RSpec.describe 'Companies', type: :request do
   let!(:company) { create(:company, status: set_status) }
   let(:headers) do
     {

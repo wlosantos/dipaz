@@ -30,6 +30,10 @@ RSpec.describe Company, type: :model do
       it { is_expected.to validate_length_of(:cnpj).is_at_least(18) }
       it { is_expected.to define_enum_for(:status).with_values(%i[active blocked]) }
     end
+
+    context 'relationships' do
+      it { is_expected.to have_many :users }
+    end
   end
 
   describe 'persisting data' do
