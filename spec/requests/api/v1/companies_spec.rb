@@ -2,10 +2,15 @@ require 'rails_helper'
 
 RSpec.describe 'Companies', type: :request do
   let!(:company) { create(:company, status: set_status) }
+  let(:auth_data) { user.create_new_auth_token }
+  let(:user) { create(:user, company: company) }
   let(:headers) do
     {
       'Accept': 'application/vnd.dipaz.v1',
-      'Content-Type': Mime[:json].to_s
+      'Content-Type': Mime[:json].to_s,
+      'access-token': auth_data['access-token'],
+      'uid': auth_data['uid'],
+      'client': auth_data['client']
     }
   end
 
