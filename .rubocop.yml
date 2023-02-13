@@ -1,0 +1,32 @@
+#inherit_gem:
+#  rubocop-shopify: rubocop.yml
+
+require:
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.1
+  TargetRailsVersion: 7.0
+
+Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enable: true
+  Exclude:
+    - spec/**/*
+  # ExcludedMethods: ["describe", "context", "feature", "scenario", "let"]
+
+Metrics/MethodLength:
+  Max: 1000
+
+Metrics/LineLength:
+  Max: 130
+  Exclude:
+    - "db/schema.rb"
+    # - "*.slim"
+# AsciiComments:
+#   Enabled: false
