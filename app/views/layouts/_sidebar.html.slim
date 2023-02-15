@@ -1,0 +1,106 @@
+nav class='w-[300px] flex flex-col gap-2 h-full'
+  div class='flex-1 overflow-hidden px-2 py-4'
+    div class='pb-4 flex items-center'
+      = heroicon 'arrow-path-rounded-square', options:{class: 'w-5 h-5 inline mr-2'}
+      h1 class='text-2xl font-semibold flex items-center tracking-wider text-gray-800'
+        span di
+        span class='w-10 h-10 bg-sky-400 pl-0.5 text-white rounded-full flex items-center justify-center' P
+        span az
+    hr class='mb-4'
+    div class='menu h-full overflow-y-auto text-sm font-medium text-gray-800'
+      ul class='space-y-1' data-controller='sidebar'
+        li
+          = link_to root_path, class: 'sidebar-btn' do
+            div class='flex-1 flex items-center gap-2'
+              = heroicon 'home', variant: :solid, options:{class: 'w-5 h-5 inline' }
+              span Home
+        li class='sidebar-btn cursor-pointer' data-action='click->sidebar#toggleSubmenu'
+          = link_to root_path, class: 'pointer-events-none flex justify-between items-center w-full' do
+            div class='flex items-center gap-2'
+              = heroicon 'user-group', variant: :solid, options:{class: 'w-5 h-5 inline' }
+              span Customers
+            div
+              = heroicon 'ellipsis-vertical', variant: :solid, options:{class: 'w-5 h-5 inline' }
+
+        li id='customer-submenu' class=''
+          div class='ml-4 pl-2 border-l border-gray-200'
+            ul class='space-y-1'
+              li
+                = link_to root_path, class: 'sidebar-btn' do
+                  div class='flex items-center gap-2'
+                    = heroicon 'user-plus', variant: :solid, options:{class: 'w-5 h-5 inline' }
+                    span New Customers
+              li
+                = link_to root_path, class: 'sidebar-btn' do
+                  div class='flex items-center gap-2'
+                    = heroicon 'banknotes', variant: :solid, options:{class: 'w-5 h-5 inline' }
+                    span Payment
+              li
+                = link_to root_path, class: 'sidebar-btn' do
+                  div class='flex items-center gap-2'
+                    = heroicon 'chart-pie', variant: :solid, options:{class: 'w-5 h-5 inline' }
+                    span Charts
+              li
+                = link_to root_path, class: 'sidebar-btn' do
+                  div class='flex items-center gap-2'
+                    = heroicon 'list-bullet', variant: :solid, options:{class: 'w-5 h-5 inline' }
+                    span List Customers
+
+        li class='sidebar-btn cursor-pointer' data-action='click->sidebar#toggleSubmenu'
+          = link_to root_path, class: 'pointer-events-none flex justify-between items-center w-full' do
+            div class='flex items-center gap-2'
+              = heroicon 'wallet', variant: :solid, options:{class: 'w-5 h-5 inline' }
+              span Company
+            div
+              = heroicon 'ellipsis-vertical', variant: :solid, options:{class: 'w-5 h-5 inline' }
+        li id='company-submenu' class=''
+          div class='ml-4 pl-2 border-l border-gray-200'
+            ul class='space-y-1'
+              li
+                = link_to root_path, class: 'sidebar-btn' do
+                  div class='flex items-center gap-2'
+                    = heroicon 'finger-print', variant: :solid, options:{class: 'w-5 h-5 inline' }
+                    span Register
+              li
+                = link_to root_path, class: 'sidebar-btn' do
+                  div class='flex items-center gap-2'
+                    = heroicon 'device-phone-mobile', variant: :solid, options:{class: 'w-5 h-5 inline' }
+                    span Contacts
+              li
+                = link_to root_path, class: 'sidebar-btn' do
+                  div class='flex items-center gap-2'
+                    = heroicon 'arrow-down-on-square', variant: :solid, options:{class: 'w-5 h-5 inline' }
+                    span Plans
+
+        li class='sidebar-btn cursor-pointer' data-action='click->sidebar#toggleSubmenu'
+          = link_to root_path, class: 'pointer-events-none flex justify-between items-center w-full' do
+            div class='flex items-center gap-2'
+              = heroicon 'server-stack', variant: :solid, options:{class: 'w-5 h-5 inline' }
+              span Workflow
+            div
+              = heroicon 'ellipsis-vertical', variant: :solid, options:{class: 'w-5 h-5 inline' }
+        li id='workflow-submenu' class=''
+          div class='ml-4 pl-2 border-l border-gray-200'
+            ul class='space-y-1'
+              li
+                = link_to root_path, class: 'sidebar-btn' do
+                  div class='flex items-center gap-2'
+                    = heroicon 'calendar-days', variant: :solid, options:{class: 'w-5 h-5 inline' }
+                    span Tasks
+              li
+                = link_to root_path, class: 'sidebar-btn' do
+                  div class='flex items-center gap-2'
+                    = heroicon 'calculator', variant: :solid, options:{class: 'w-5 h-5 inline' }
+                    span Billing
+              li
+                = link_to root_path, class: 'sidebar-btn' do
+                  div class='flex items-center gap-2'
+                    = heroicon 'chart-bar', variant: :solid, options:{class: 'w-5 h-5 inline' }
+                    span Metrics
+              li
+                = link_to root_path, class: 'sidebar-btn' do
+                  div class='flex items-center gap-2'
+                    = heroicon 'cog', variant: :solid, options:{class: 'w-5 h-5 inline' }
+                    span Setting
+  div
+    | footer

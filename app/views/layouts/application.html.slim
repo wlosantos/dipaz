@@ -10,5 +10,9 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
 
-  body
-    = yield
+  body class='bg-gray-200'
+    main class='flex w-full h-screen gap-0.5'
+      aside class='bg-white h-full'
+        = render 'layouts/sidebar'
+      section class='flex-1 bg-white'
+        = yield
