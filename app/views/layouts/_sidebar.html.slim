@@ -104,9 +104,12 @@ nav class='w-[300px] flex flex-col gap-2 h-full'
                   title: 'Support')
   div class='px-2 py-4'
     hr class='mb-4'
-    div class='flex'
-      div class='flex-1 flex items-center gap-2'
-        = heroicon 'user-circle', variant: :solid, options:{class: 'w-5 h-5 inline' }
+    div class='flex items-center gap-2'
+      div
+        = render AvatarComponent.new(image: 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.unsplash.com%2Fphoto-1610043809095-9c87fe936e03%3Fixlib%3Drb-1.2.1%26q%3D80%26fm%3Djpg%26crop%3Dentropy%26cs%3Dtinysrgb%26w%3D1080%26fit%3Dmax&f=1&nofb=1&ipt=9fe4894c9773579669ab981aa7f81b63ccacd5af543049341dac46d5d2d21b02&ipo=images', size: 'w-11 h-11', custom_class:'rounded-lg')
+
+      div class='flex-1 overflow-hidden'
         span class='text-sm font-medium text-gray-800' John Doe
       div class='text-right'
-        = heroicon 'arrow-right-on-rectangle', variant: :outline, options:{class: 'w-5 h-5 inline' }
+        = link_to '#', class: 'hover:text-sky-600' do
+          = heroicon 'arrow-right-on-rectangle', variant: :outline, options:{class: 'w-5 h-5 inline' }
