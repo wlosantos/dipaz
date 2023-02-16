@@ -1,11 +1,14 @@
-nav class='w-[300px] flex flex-col gap-2 h-full'
-  div class='flex-1 overflow-hidden px-2 py-4'
+nav id='sidebar' class='w-[300px] flex flex-col gap-2 h-full fixed top-0 left-[-300px] lg:left-0 lg:static bg-white border-r border-gray-200'
+  header class='flex-1 overflow-hidden px-2 py-4'
     div class='pb-4 flex items-center'
       = heroicon 'arrow-path-rounded-square', options:{class: 'w-5 h-5 inline mr-2'}
-      h1 class='text-2xl font-semibold flex items-center tracking-wider text-gray-800'
+      h1 class='text-2xl font-semibold flex items-center tracking-wider text-gray-800 flex-1'
         span di
         span class='w-6 h-6 bg-sky-400 pl-0.5 mx-0.5 text-white text-lg font-bold rounded-tr-md rounded-bl-md flex items-center justify-center' P
         span az
+      div data-controller='sidebar' class='block lg:hidden'
+        button data-action='click->sidebar#showSidebar'
+          = heroicon 'x-mark', options:{class: 'w-5 h-5 inline'}
     hr class='mb-4'
     div class='menu h-full overflow-y-auto text-sm font-medium text-gray-800'
       ul class='space-y-1' data-controller='sidebar'
@@ -71,7 +74,7 @@ nav class='w-[300px] flex flex-col gap-2 h-full'
                     = heroicon 'arrow-down-on-square', variant: :solid, options:{class: 'w-5 h-5 inline' }
                     span Plans
 
-        li class='sidebar-btn cursor-pointer' data-action='click->sidebar#toggleSubmenu'
+        li class='sidebar-btn cursor-pointer pointer-events-none md:pointer-events-auto' data-action='click->sidebar#toggleSubmenu'
           h4 class='pointer-events-none flex justify-between items-center w-full text-sky-600'
             div class='flex items-center gap-2'
               = heroicon 'server-stack', variant: :solid, options:{class: 'w-5 h-5 inline' }
@@ -102,7 +105,7 @@ nav class='w-[300px] flex flex-col gap-2 h-full'
                 = render MenuLinkComponent.new(href: root_path,
                   icon: heroicon('chat-bubble-left-right', variant: :solid, options:{class: 'w-5 h-5 inline'}),
                   title: 'Support')
-  div class='px-2 py-4'
+  footer class='px-2 pb-4'
     hr class='mb-4'
     div class='flex items-center gap-2'
       div
