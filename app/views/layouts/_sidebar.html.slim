@@ -4,18 +4,22 @@ nav class='w-[300px] flex flex-col gap-2 h-full'
       = heroicon 'arrow-path-rounded-square', options:{class: 'w-5 h-5 inline mr-2'}
       h1 class='text-2xl font-semibold flex items-center tracking-wider text-gray-800'
         span di
-        span class='w-10 h-10 bg-sky-400 pl-0.5 text-white rounded-full flex items-center justify-center' P
+        span class='w-6 h-6 bg-sky-400 pl-0.5 mx-0.5 text-white text-lg font-bold rounded-tr-md rounded-bl-md flex items-center justify-center' P
         span az
     hr class='mb-4'
     div class='menu h-full overflow-y-auto text-sm font-medium text-gray-800'
       ul class='space-y-1' data-controller='sidebar'
         li
-          = link_to root_path, class: 'sidebar-btn' do
-            div class='flex-1 flex items-center gap-2'
-              = heroicon 'home', variant: :solid, options:{class: 'w-5 h-5 inline' }
-              span Home
+          = render MenuLinkComponent.new(href: root_path,
+          icon: heroicon('home', variant: :solid, options:{class: 'w-5 h-5 inline'}),
+          title: 'Home')
+        li
+          = render MenuLinkComponent.new(href: root_path,
+          icon: heroicon('bell', variant: :solid, options:{class: 'w-5 h-5 inline'}),
+          title: 'Notifications')
+
         li class='sidebar-btn cursor-pointer' data-action='click->sidebar#toggleSubmenu'
-          = link_to root_path, class: 'pointer-events-none flex justify-between items-center w-full' do
+          h4 class='pointer-events-none flex justify-between items-center w-full text-sky-600'
             div class='flex items-center gap-2'
               = heroicon 'user-group', variant: :solid, options:{class: 'w-5 h-5 inline' }
               span Customers
@@ -26,46 +30,41 @@ nav class='w-[300px] flex flex-col gap-2 h-full'
           div class='ml-4 pl-2 border-l border-gray-200'
             ul class='space-y-1'
               li
-                = link_to root_path, class: 'sidebar-btn' do
-                  div class='flex items-center gap-2'
-                    = heroicon 'user-plus', variant: :solid, options:{class: 'w-5 h-5 inline' }
-                    span New Customers
+                = render MenuLinkComponent.new(href: root_path,
+                  icon: heroicon('user-plus', variant: :solid, options:{class: 'w-5 h-5 inline'}),
+                  title: 'New Customer')
               li
-                = link_to root_path, class: 'sidebar-btn' do
-                  div class='flex items-center gap-2'
-                    = heroicon 'banknotes', variant: :solid, options:{class: 'w-5 h-5 inline' }
-                    span Payment
+                = render MenuLinkComponent.new(href: root_path,
+                  icon: heroicon('banknotes', variant: :solid, options:{class: 'w-5 h-5 inline'}),
+                  title: 'Payment')
               li
-                = link_to root_path, class: 'sidebar-btn' do
-                  div class='flex items-center gap-2'
-                    = heroicon 'chart-pie', variant: :solid, options:{class: 'w-5 h-5 inline' }
-                    span Charts
+                = render MenuLinkComponent.new(href: root_path,
+                  icon: heroicon('chart-pie', variant: :solid, options:{class: 'w-5 h-5 inline'}),
+                  title: 'Charts')
               li
-                = link_to root_path, class: 'sidebar-btn' do
-                  div class='flex items-center gap-2'
-                    = heroicon 'list-bullet', variant: :solid, options:{class: 'w-5 h-5 inline' }
-                    span List Customers
+                = render MenuLinkComponent.new(href: root_path,
+                  icon: heroicon('list-bullet', variant: :solid, options:{class: 'w-5 h-5 inline'}),
+                  title: 'List Customers')
 
         li class='sidebar-btn cursor-pointer' data-action='click->sidebar#toggleSubmenu'
-          = link_to root_path, class: 'pointer-events-none flex justify-between items-center w-full' do
+          h4 class='pointer-events-none flex justify-between items-center w-full text-sky-600'
             div class='flex items-center gap-2'
               = heroicon 'wallet', variant: :solid, options:{class: 'w-5 h-5 inline' }
               span Company
             div
               = heroicon 'ellipsis-vertical', variant: :solid, options:{class: 'w-5 h-5 inline' }
+
         li id='company-submenu' class=''
           div class='ml-4 pl-2 border-l border-gray-200'
             ul class='space-y-1'
               li
-                = link_to root_path, class: 'sidebar-btn' do
-                  div class='flex items-center gap-2'
-                    = heroicon 'finger-print', variant: :solid, options:{class: 'w-5 h-5 inline' }
-                    span Register
+                = render MenuLinkComponent.new(href: root_path,
+                  icon: heroicon('finger-print', variant: :solid, options:{class: 'w-5 h-5 inline'}),
+                  title: 'Register')
               li
-                = link_to root_path, class: 'sidebar-btn' do
-                  div class='flex items-center gap-2'
-                    = heroicon 'device-phone-mobile', variant: :solid, options:{class: 'w-5 h-5 inline' }
-                    span Contacts
+                = render MenuLinkComponent.new(href: root_path,
+                  icon: heroicon('device-phone-mobile', variant: :solid, options:{class: 'w-5 h-5 inline'}),
+                  title: 'Contacts')
               li
                 = link_to root_path, class: 'sidebar-btn' do
                   div class='flex items-center gap-2'
@@ -73,34 +72,41 @@ nav class='w-[300px] flex flex-col gap-2 h-full'
                     span Plans
 
         li class='sidebar-btn cursor-pointer' data-action='click->sidebar#toggleSubmenu'
-          = link_to root_path, class: 'pointer-events-none flex justify-between items-center w-full' do
+          h4 class='pointer-events-none flex justify-between items-center w-full text-sky-600'
             div class='flex items-center gap-2'
               = heroicon 'server-stack', variant: :solid, options:{class: 'w-5 h-5 inline' }
               span Workflow
             div
               = heroicon 'ellipsis-vertical', variant: :solid, options:{class: 'w-5 h-5 inline' }
+
         li id='workflow-submenu' class=''
           div class='ml-4 pl-2 border-l border-gray-200'
             ul class='space-y-1'
               li
-                = link_to root_path, class: 'sidebar-btn' do
-                  div class='flex items-center gap-2'
-                    = heroicon 'calendar-days', variant: :solid, options:{class: 'w-5 h-5 inline' }
-                    span Tasks
+                = render MenuLinkComponent.new(href: root_path,
+                  icon: heroicon('calendar-days', variant: :solid, options:{class: 'w-5 h-5 inline'}),
+                  title: 'Tasks')
               li
-                = link_to root_path, class: 'sidebar-btn' do
-                  div class='flex items-center gap-2'
-                    = heroicon 'calculator', variant: :solid, options:{class: 'w-5 h-5 inline' }
-                    span Billing
+                = render MenuLinkComponent.new(href: root_path,
+                  icon: heroicon('calculator', variant: :solid, options:{class: 'w-5 h-5 inline'}),
+                  title: 'Billing')
               li
-                = link_to root_path, class: 'sidebar-btn' do
-                  div class='flex items-center gap-2'
-                    = heroicon 'chart-bar', variant: :solid, options:{class: 'w-5 h-5 inline' }
-                    span Metrics
+                = render MenuLinkComponent.new(href: root_path,
+                  icon: heroicon('chart-bar', variant: :solid, options:{class: 'w-5 h-5 inline'}),
+                  title: 'Metrics')
               li
-                = link_to root_path, class: 'sidebar-btn' do
-                  div class='flex items-center gap-2'
-                    = heroicon 'cog', variant: :solid, options:{class: 'w-5 h-5 inline' }
-                    span Setting
-  div
-    | footer
+                = render MenuLinkComponent.new(href: root_path,
+                  icon: heroicon('cog', variant: :solid, options:{class: 'w-5 h-5 inline'}),
+                  title: 'Setting')
+              li
+                = render MenuLinkComponent.new(href: root_path,
+                  icon: heroicon('chat-bubble-left-right', variant: :solid, options:{class: 'w-5 h-5 inline'}),
+                  title: 'Support')
+  div class='px-2 py-4'
+    hr class='mb-4'
+    div class='flex'
+      div class='flex-1 flex items-center gap-2'
+        = heroicon 'user-circle', variant: :solid, options:{class: 'w-5 h-5 inline' }
+        span class='text-sm font-medium text-gray-800' John Doe
+      div class='text-right'
+        = heroicon 'arrow-right-on-rectangle', variant: :outline, options:{class: 'w-5 h-5 inline' }
