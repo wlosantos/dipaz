@@ -102,9 +102,9 @@ nav id='sidebar' class='w-[300px] flex flex-col gap-2 h-full fixed top-0 left-[-
                   icon: heroicon('cog', variant: :solid, options:{class: 'w-5 h-5 inline'}),
                   title: 'Setting')
               li
-                = render MenuLinkComponent.new(href: root_path,
+                = render MenuLinkComponent.new(href: support_path,
                   icon: heroicon('chat-bubble-left-right', variant: :solid, options:{class: 'w-5 h-5 inline'}),
-                  title: 'Support')
+                  title: 'Support', action: :support)
   footer class='px-2 pb-4'
     hr class='mb-4'
     div class='flex items-center gap-2'
