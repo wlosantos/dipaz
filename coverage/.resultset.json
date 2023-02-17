@@ -1,0 +1,72 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/wendellopes/my/dipaz/app/components/avatar_component.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/wendellopes/my/dipaz/spec/components/menu_link_component_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/wendellopes/my/dipaz/app/components/menu_link_component.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1676595952
+  }
+}
