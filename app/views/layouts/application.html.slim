@@ -10,5 +10,15 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
 
-  body
-    = yield
+  body class='bg-gray-100'
+    main class='flex w-full h-screen gap-0.5'
+      aside id='aside-menu' class='h-full relative z-50 md:w-auto md:flex-shrink-0'
+        div data-controller='sidebar' class='block lg:hidden'
+          button id='show-sidebar' class='absolute top-2 left-4' data-action='click->sidebar#showSidebar'
+            div class='cursor-pointer bg-sky-400 flex justify-center items-center p-2 text-white rounded hover:bg-sky-500 pointer-events-none'
+              = heroicon 'bars-3-center-left', options:{class: 'w-5 h-5 inline'}
+        = render 'layouts/sidebar'
+      section class='flex-1 bg-white rounded-xl'
+        div id='bk-menu' class='hidden'
+          div class='absolute top-0 right-0 bottom-0 left-0 z-10 bg-black/20'
+        = yield
